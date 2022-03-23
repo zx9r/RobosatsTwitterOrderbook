@@ -1,0 +1,4 @@
+requests
+requests[socks]
+requests-oauthlib
+tweepy
