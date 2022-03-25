@@ -18,17 +18,23 @@ logger.info('Bot Starting...')
 
 
 def create_tweet(book_order):
-    message = f"""
-Type: {config.ROBOSATS_ORDER_TYPE[order['type']]}
-Amount: {int(float(order['amount'])):,}
-Currency: {CURRENCIES[str(order['currency'])]}
-Payment method: {order['payment_method']} 
-Premium: {order['premium']}%
-Price: {int(float(order['price'])):,}
+    # TODO: FIX amount could have decimals
+    if book_order['has_range']:
+        amount = f"{int(float(book_order['min_amount'])):,}-{int(float(book_order['max_amount'])):,}"
+    else:
+        amount = f"{int(float(book_order['amount'])):,}"
+
+    tweet = f"""
+Type: {config.ROBOSATS_ORDER_TYPE[book_order['type']]}
+Amount: {amount}
+Currency: {CURRENCIES[str(book_order['currency'])]}
+Payment method: {book_order['payment_method']} 
+Premium: {book_order['premium']}%
+Price: {int(float(book_order['price'])):,}
 http://unsafe.robosats.com/order/{order['id']}
 http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion
     """
-    return message
+    return tweet
 
 
 # Load persistence file. It includes already posted order ids
@@ -53,7 +59,7 @@ while True:
     while not order_book:
         try:
             order_book = requests.get(config.ROBOSATS_API_ORDERBOOK, proxies=config.proxies).json()
-        except ConnectionError as e:
+        except requests.RequestException:
             logger.exception("Error retrieving orderbook. Waiting 10 secs to retry")
             time.sleep(10)
 
