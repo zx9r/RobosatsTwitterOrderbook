@@ -81,10 +81,8 @@ def main():
             if order['id'] not in published_orders:
                 message = create_tweet(order)
                 logger.debug(message)
-                #response = twitter_client.create_tweet(text=message, user_auth=True)
-                #logger.debug(response)
-                print(message)
-                print(f'Message Length: {len(message)}')
+                response = twitter_client.create_tweet(text=message, user_auth=True)
+                logger.debug(response)
                 published_orders.append(order['id'])
 
         with open(config.PERSISTENCE_FILE, 'w') as f:
