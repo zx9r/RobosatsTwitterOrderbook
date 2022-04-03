@@ -13,7 +13,7 @@ ROBOSATS_ORDER_TYPE = {
 ROBOSATS_ORDER_TYPE_BUY = 0
 ROBOSATS_ORDER_TYPE_SELL = 1
 
-proxies = {'http':  'socks5h://localhost:9050',
+PROXIES = {'http': 'socks5h://localhost:9050',
            'https': 'socks5h://localhost:9050'}
 
-persistence_file = 'published_tweets.json'
+PERSISTENCE_FILE = 'published_tweets.json'

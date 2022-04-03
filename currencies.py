@@ -65,3 +65,75 @@ CURRENCIES = {
     "300": "XAU",
     "1000": "BTC"
 }
+
+
+# From https://github.com/Reckless-Satoshi/robosats/blob/a4a76d1d9f3af090fc3ef8250b9e9df8b7d9874f/frontend/src/components/getFlags.js
+def get_flag(code):
+    flags = {
+        'AUD': '🇦🇺',
+        'ARS': '🇦🇷',
+        'BRL': '🇧🇷',
+        'CAD': '🇨🇦',
+        'CHF': '🇨🇭',
+        'CLP': '🇨🇱',
+        'CNY': '🇨🇳',
+        'EUR': '🇪🇺',
+        'HRK': '🇨🇷',
+        'CZK': '🇨🇿',
+        'DKK': '🇩🇰',
+        'GBP': '🇬🇧',
+        'HKD': '🇭🇰',
+        'HUF': '🇭🇺',
+        'INR': '🇮🇳',
+        'ISK': '🇮🇸',
+        'JPY': '🇯🇵',
+        'KRW': '🇰🇷',
+        'MXN': '🇲🇽',
+        'NOK': '🇳🇴',
+        'NZD': '🇳🇿',
+        'PLN': '🇵🇱',
+        'RON': '🇷🇴',
+        'RUB': '🇷🇺',
+        'SEK': '🇸🇪',
+        'SGD': '🇸🇬',
+        'VES': '🇻🇪',
+        'TRY': '🇹🇷',
+        'USD': '🇺🇸',
+        'ZAR': '🇿🇦',
+        'COP': '🇨🇴',
+        'PEN': '🇵🇪',
+        'UYU': '🇺🇾',
+        'PYG': '🇵🇾',
+        'BOB': '🇧🇴',
+        'IDR': '🇮🇩',
+        'ANG': '🇧🇶',
+        'CRC': '🇨🇷',
+        'CUP': '🇨🇺',
+        'DOP': '🇩🇴',
+        'GHS': '🇬🇭',
+        'GTQ': '🇬🇹',
+        'ILS': '🇮🇱',
+        'JMD': '🇯🇲',
+        'KES': '🇰🇪',
+        'KZT': '🇰🇿',
+        'MYR': '🇲🇲',
+        'NAD': '🇳🇦',
+        'NGN': '🇳🇬',
+        'AZN': '🇦🇿',
+        'PAB': '🇵🇦',
+        'PHP': '🇵🇭',
+        'PKR': '🇵🇰',
+        'QAR': '🇶🇦',
+        'SAR': '🇸🇦',
+        'THB': '🇹🇭',
+        'TTD': '🇹🇹',
+        'VND': '🇻🇳',
+        'XOF': '🇸🇳',
+        'XAU': '🟨',
+    }
+    try:
+        flag = flags[code]
+    except KeyError:
+        flag = '🏳'
+
+    return flag
