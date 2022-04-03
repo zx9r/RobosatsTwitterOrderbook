@@ -35,8 +35,8 @@ Currency: {currency} {flag}
 Payment method: {book_order['payment_method']} 
 Premium: {book_order['premium']}%
 Price: {int(float(book_order['price'])):,}
-http://unsafe.robosats.com/order/{book_order['id']}
-http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion
+LINK: http://unsafe.robosats.com/ref/pUk9azW4KTw
+LINK (TOR): http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/ref/pUk9azW4KTw
     """
     return tweet
 
@@ -81,8 +81,10 @@ def main():
             if order['id'] not in published_orders:
                 message = create_tweet(order)
                 logger.debug(message)
-                response = twitter_client.create_tweet(text=message, user_auth=True)
-                logger.debug(response)
+                #response = twitter_client.create_tweet(text=message, user_auth=True)
+                #logger.debug(response)
+                print(message)
+                print(f'Message Length: {len(message)}')
                 published_orders.append(order['id'])
 
         with open(config.PERSISTENCE_FILE, 'w') as f:
