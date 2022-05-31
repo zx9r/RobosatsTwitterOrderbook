@@ -35,8 +35,8 @@ Currency: {currency} {flag}
 Payment method: {book_order['payment_method']} 
 Premium: {book_order['premium']}%
 Price: {int(float(book_order['price'])):,}
-LINK: http://unsafe.robosats.com/ref/pUk9azW4KTw
-LINK (TOR): http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/ref/pUk9azW4KTw
+LINK: http://unsafe.robosats.com/ref/ImldLaOraJ4
+LINK (TOR): http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/ref/ImldLaOraJ4
     """
     return tweet
 
